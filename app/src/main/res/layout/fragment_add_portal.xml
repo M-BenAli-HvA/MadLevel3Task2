@@ -6,22 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".AddPortalFragment">
 
-    <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/button_second"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_add_portal"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:text="@string/previous"
+        android:text="@string/add_portal"
+        android:textColor="#FFF"
+        android:theme="@style/Widget.MaterialComponents.Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_portal_title"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/title"
+        app:layout_constraintBottom_toTopOf="@+id/edit_portal_url"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_portal_url"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="348dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/url"
+        android:inputType="textUri"
+        android:orientation="vertical"
+        app:prefixText="http://"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add_portal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/edit_portal_title"-->
+    <!--        android:layout_width="350dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:autofillHints=""-->
+    <!--        android:ems="10"-->
+    <!--        android:inputType="text"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/btn_add_portal"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.491"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/edit_portal_url"-->
+    <!--        app:layout_constraintVertical_bias="0.046" />-->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

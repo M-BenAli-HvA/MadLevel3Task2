@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_add_portal.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -14,8 +16,8 @@ import androidx.navigation.fragment.findNavController
 class PortalsFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_portals, container, false)
@@ -23,9 +25,12 @@ class PortalsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeAddedPortal()
+    }
 
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
+    private fun observeAddedPortal() {
+        println(arguments?.get(ARG_PORTAL_URL))
+        println(arguments?.get(ARG_PORTAL_TITLE))
+
     }
 }
