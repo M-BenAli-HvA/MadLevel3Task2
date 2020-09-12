@@ -19,62 +19,46 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_portal_title"
+        android:id="@+id/textInputLayout3"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="56dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/title"
-        app:layout_constraintBottom_toTopOf="@+id/edit_portal_url"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_portal_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_portal_url"
+        android:id="@+id/textInputLayout2"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="348dp"
+        android:layout_marginBottom="444dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/url"
         android:inputType="textUri"
         android:orientation="vertical"
-        app:prefixText="http://"
         app:layout_constraintBottom_toTopOf="@+id/btn_add_portal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_portal_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
-
-
-    <!--    <EditText-->
-    <!--        android:id="@+id/edit_portal_title"-->
-    <!--        android:layout_width="350dp"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        android:layout_marginTop="20dp"-->
-    <!--        android:autofillHints=""-->
-    <!--        android:ems="10"-->
-    <!--        android:inputType="text"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/btn_add_portal"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.491"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/edit_portal_url"-->
-    <!--        app:layout_constraintVertical_bias="0.046" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

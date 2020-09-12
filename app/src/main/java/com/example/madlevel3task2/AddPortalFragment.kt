@@ -29,14 +29,17 @@ class AddPortalFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.edit_portal_url.setText("http://")
+
         view.btn_add_portal.setOnClickListener {
             onAddPortal()
         }
     }
 
     private fun onAddPortal() {
-        val portalTitle = edit_portal_title.editText.toString()
-        val portalUrl = edit_portal_url.editText.toString()
+        val portalTitle = edit_portal_title.text.toString()
+        val portalUrl = edit_portal_url.text.toString()
         if (portalTitle.isNotBlank() || portalUrl.isNotBlank()) {
             val args = Bundle()
             args.putString(ARG_PORTAL_TITLE, portalTitle)
