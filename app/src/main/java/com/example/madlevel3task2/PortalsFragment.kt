@@ -1,13 +1,14 @@
 package com.example.madlevel3task2
 
+import CustomTabHelper
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_portals.*
 
 private var portals: ArrayList<Portal> = arrayListOf()
@@ -17,7 +18,10 @@ private var portals: ArrayList<Portal> = arrayListOf()
  */
 class PortalsFragment : Fragment() {
 
-    private var portalAdapter: PortalAdapter = PortalAdapter(portals)
+    private var customTabHelper: CustomTabHelper = CustomTabHelper()
+    private var portalAdapter: PortalAdapter =
+        PortalAdapter(portals) { portal: Portal -> portalItemClicked(portal) }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,6 +32,7 @@ class PortalsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         rv_portals.adapter = portalAdapter
         rv_portals.layoutManager = GridLayoutManager(
             this.context, 2
@@ -47,5 +52,21 @@ class PortalsFragment : Fragment() {
         }
         println(portalName)
         println(portalUrl)
+    }
+
+    private fun portalItemClicked(portal: Portal) {
+        println("Clicked portal with name: " + portal.title)
+        println(this.requireContext())
+
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        val packageName = customTabHelper.getPackageNameToUse(this.requireContext(), portal.url.toString())
+
+        if (packageName == null) {
+            println("Empty package name")
+        } else {
+            customTabsIntent.intent.setPackage(packageName)
+            customTabsIntent.launchUrl(this.requireContext(), Uri.parse(portal.url))
+        }
     }
 }

@@ -1,9 +1,11 @@
 package com.example.madlevel3task2
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
@@ -51,4 +53,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 }
